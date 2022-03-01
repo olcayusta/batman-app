@@ -25,8 +25,4 @@ export class AppComponent implements OnInit {
             alert('Available update!')
         })
     }
-
-    onLoad() {
-
-    }
 }
