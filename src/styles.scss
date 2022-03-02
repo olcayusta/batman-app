@@ -35,3 +35,9 @@ img {
     object-fit: cover;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #303030;
+  }
+}
