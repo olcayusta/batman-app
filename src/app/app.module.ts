@@ -8,6 +8,8 @@ import { environment } from '../environments/environment';
 import { LazyDirective } from './lazy.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeroComponent } from './hero/hero.component';
+import {HttpClientModule} from "@angular/common/http";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { HeroComponent } from './hero/hero.component';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

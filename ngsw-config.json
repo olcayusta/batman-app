@@ -1,6 +1,19 @@
 {
   "$schema": "./node_modules/@angular/service-worker/config/schema.json",
   "index": "/index.html",
+  "dataGroups": [
+    {
+      "name": "api-performance",
+      "urls": [
+        "https://jsonplaceholder.typicode.com/todos/1"
+      ],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxSize": 20,
+        "maxAge": "3d"
+      }
+    }
+  ],
   "assetGroups": [
     {
       "name": "app",
