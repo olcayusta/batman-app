@@ -1,0 +1,6 @@
+<ng-container *ngIf="data$ | async as data">
+    <p>hero works!</p>
+
+    <h1>{{data.title}}</h1>
+    <mat-checkbox [checked]="data.completed"></mat-checkbox>
+</ng-container>

@@ -13,4 +13,8 @@ export class DataService {
   getData(): Observable<Hero> {
     return this.http.get<Hero>(`https://jsonplaceholder.typicode.com/todos/1`);
   }
+
+  getData2(): Observable<Hero> {
+    return this.http.get<Hero>(`https://jsonplaceholder.typicode.com/todos/2`);
+  }
 }

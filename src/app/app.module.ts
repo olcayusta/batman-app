@@ -10,12 +10,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeroComponent } from './hero/hero.component';
 import {HttpClientModule} from "@angular/common/http";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import { Hero2Component } from './hero2/hero2.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LazyDirective,
-    HeroComponent
+    HeroComponent,
+    Hero2Component
   ],
   imports: [
     BrowserModule,

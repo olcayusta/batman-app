@@ -3,7 +3,7 @@
   "index": "/index.html",
   "dataGroups": [
     {
-      "name": "api-performance",
+      "name": "performanceTodos",
       "urls": [
         "https://jsonplaceholder.typicode.com/todos/1"
       ],

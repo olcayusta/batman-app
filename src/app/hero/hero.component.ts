@@ -19,5 +19,4 @@ export class HeroComponent implements OnInit {
     ngOnInit() {
         this.data$ = this.dataService.getData();
     }
-
 }
