@@ -1,8 +1,8 @@
 {
   "name": "batman-app",
   "short_name": "batman-app",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "theme_color": "#6200ee",
+  "background_color": "#6200ee",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
