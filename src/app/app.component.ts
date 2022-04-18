@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {SwUpdate, SwPush, VersionReadyEvent} from "@angular/service-worker";
 import {filter, map, Observable} from "rxjs";
 import {environment} from "../environments/environment";
-import { HttpClient } from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
     selector: 'app-root',
@@ -17,34 +17,39 @@ export class AppComponent implements OnInit {
     constructor(private swUpdate: SwUpdate, private swPush: SwPush, private http: HttpClient) {
     }
 
-    sendSubscriptionToTheServer(subscription: PushSubscription): Observable<any> {
-        return this.http.post(this.SERVER_URL, subscription);
-    }
-
-    ngOnInit() {
+    async subscribeToPush() {
         if (this.swPush.isEnabled) {
             try {
-                this.swPush.requestSubscription({
+                const sub = await this.swPush.requestSubscription({
                     serverPublicKey: environment.PUBLIC_VAPID_KEY_OF_SERVER
-                }).then((sub: PushSubscription) => {
-                    this.sendSubscriptionToTheServer(sub).subscribe();
                 })
+                this.sendSubscriptionToTheServer(sub).subscribe();
+
 
             } catch (e) {
                 console.error(`Could not subscribe due to:`, e);
             }
         }
+    }
 
-        this.swUpdate.versionUpdates.pipe(
-            filter((e): e is VersionReadyEvent => e.type === 'VERSION_READY'),
-            map((e) => ({
-                type: 'UPDATE_AVAILABLE',
-                current: e.currentVersion,
-                available: e.latestVersion
-            }))
-        ).subscribe(value => {
-            alert('Available update!')
-        })
+    sendSubscriptionToTheServer(subscription: PushSubscription): Observable<any> {
+        return this.http.post(this.SERVER_URL, subscription);
+    }
+
+    async ngOnInit() {
+        await this.subscribeToPush();
+
+
+        /*        this.swUpdate.versionUpdates.pipe(
+                    filter((e): e is VersionReadyEvent => e.type === 'VERSION_READY'),
+                    map((e) => ({
+                        type: 'UPDATE_AVAILABLE',
+                        current: e.currentVersion,
+                        available: e.latestVersion
+                    }))
+                ).subscribe(value => {
+                    alert('Available update!')
+                })*/
     }
 
     share() {
