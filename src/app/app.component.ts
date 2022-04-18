@@ -1,6 +1,8 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {SwUpdate, VersionReadyEvent} from "@angular/service-worker";
-import {filter, map} from "rxjs";
+import {SwUpdate, SwPush, VersionReadyEvent} from "@angular/service-worker";
+import {filter, map, Observable} from "rxjs";
+import {environment} from "../environments/environment";
+import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: 'app-root',
@@ -10,10 +12,29 @@ import {filter, map} from "rxjs";
 export class AppComponent implements OnInit {
     title = "BATMAN"
 
-    constructor(private swUpdate: SwUpdate) {
+    SERVER_URL = 'http://localhost:9001/subscription';
+
+    constructor(private swUpdate: SwUpdate, private swPush: SwPush, private http: HttpClient) {
+    }
+
+    sendSubscriptionToTheServer(subscription: PushSubscription): Observable<any> {
+        return this.http.post(this.SERVER_URL, subscription);
     }
 
     ngOnInit() {
+        if (this.swPush.isEnabled) {
+            try {
+                this.swPush.requestSubscription({
+                    serverPublicKey: environment.PUBLIC_VAPID_KEY_OF_SERVER
+                }).then((sub: PushSubscription) => {
+                    this.sendSubscriptionToTheServer(sub).subscribe();
+                })
+
+            } catch (e) {
+                console.error(`Could not subscribe due to:`, e);
+            }
+        }
+
         this.swUpdate.versionUpdates.pipe(
             filter((e): e is VersionReadyEvent => e.type === 'VERSION_READY'),
             map((e) => ({
