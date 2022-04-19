@@ -6,6 +6,25 @@
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
+  "lang": "tr",
+  "description": "The Batman App",
+"screenshots":[
+  {
+    "src":"assets/screenshots/screenshot1.webp",
+    "type":"image/webp",
+    "sizes":"1024x683"
+  },
+  {
+    "src":"assets/screenshots/screenshot2.webp",
+    "type":"image/webp",
+    "sizes":"1280x1920"
+  },
+  {
+    "src":"assets/screenshots/screenshot3.jpg",
+    "type":"image/jpeg",
+    "sizes":"900x676"
+  }
+],
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
