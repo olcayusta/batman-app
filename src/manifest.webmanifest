@@ -12,17 +12,17 @@
   {
     "src":"assets/screenshots/screenshot1.webp",
     "type":"image/webp",
-    "sizes":"1024x683"
+    "sizes":"1280x720"
   },
   {
     "src":"assets/screenshots/screenshot2.webp",
     "type":"image/webp",
-    "sizes":"1280x1920"
+    "sizes":"1280x720"
   },
   {
     "src":"assets/screenshots/screenshot3.jpg",
     "type":"image/jpeg",
-    "sizes":"900x676"
+    "sizes":"1280x720"
   }
 ],
   "icons": [
