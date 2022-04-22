@@ -3,6 +3,7 @@
   "short_name": "BatmanApp",
   "theme_color": "#272727",
   "background_color": "#121212",
+  "display_override": ["minimal-ui"],
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
