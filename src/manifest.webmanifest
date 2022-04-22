@@ -1,7 +1,7 @@
 {
   "name": "BatmanApp",
   "short_name": "BatmanApp",
-  "theme_color": "#272727",
+  "theme_color": "#001dee",
   "background_color": "#121212",
   "display_override": ["minimal-ui"],
   "display": "standalone",
