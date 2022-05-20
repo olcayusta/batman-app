@@ -10,8 +10,6 @@ import {HttpClient} from '@angular/common/http';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
-    title = "BATMAN"
-
     SERVER_URL = 'http://localhost:9001/subscription';
 
     constructor(private swUpdate: SwUpdate, private swPush: SwPush, private http: HttpClient) {
@@ -50,15 +48,5 @@ export class AppComponent implements OnInit {
                 ).subscribe(value => {
                     alert('Available update!')
                 })*/
-    }
-
-    share() {
-        if (navigator.share) {
-            navigator.share({
-                url: 'https://web.dev/',
-            })
-                .then(() => console.log('Successful share'))
-                .catch((error) => console.log('Error sharing', error));
-        }
     }
 }

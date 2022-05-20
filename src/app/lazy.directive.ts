@@ -15,8 +15,6 @@ export class LazyDirective implements OnInit {
     const observer = new IntersectionObserver(([entry]) => {
       const {isIntersecting} = entry
       if (isIntersecting) {
-
-
         const image = new Image();
         image.src = this.imgSrc;
         image.onload = () => {

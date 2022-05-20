@@ -3,11 +3,12 @@
 </mat-toolbar>
 <main>
     <div class="container">
-        <h1>Merhaba, {{title}} is cool!</h1>
-        <!--<img src="../assets/giphy.webp" alt="BATMAN" width="400" height="300">-->
+        <a routerLink="/batman">
+            BATMAN - (dataGroups - performanceTodos)
+        </a>
+        <a routerLink="/superman">
+            SUPERMAN - (Normal)
+        </a>
     </div>
-
-    <button (click)="share()">SHARE BUTTON</button>
-
     <router-outlet></router-outlet>
 </main>

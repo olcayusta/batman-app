@@ -1,21 +1,21 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import {Observable} from "rxjs";
 import {Hero} from "../hero.model";
-import {DataService} from "../data.service";
+import {DataService} from "../shared/data.service";
 
 @Component({
-  selector: 'app-hero2',
-  templateUrl: './hero2.component.html',
-  styleUrls: ['./hero2.component.scss'],
+  selector: 'app-superman',
+  templateUrl: './superman.component.html',
+  styleUrls: ['./superman.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class Hero2Component implements OnInit {
+export class SupermanComponent implements OnInit {
   data$!: Observable<Hero>;
 
   constructor(private dataService: DataService) {
   }
 
   ngOnInit() {
-    this.data$ = this.dataService.getData2();
+    this.data$ = this.dataService.getTodos2();
   }
 }

@@ -7,18 +7,18 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { LazyDirective } from './lazy.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeroComponent } from './hero/hero.component';
+import { BatmanComponent } from './batman/batman.component';
 import {HttpClientModule} from "@angular/common/http";
 import {MatCheckboxModule} from "@angular/material/checkbox";
-import { Hero2Component } from './hero2/hero2.component';
+import { SupermanComponent } from './superman/superman.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
     AppComponent,
     LazyDirective,
-    HeroComponent,
-    Hero2Component
+    BatmanComponent,
+    SupermanComponent
   ],
     imports: [
         BrowserModule,
