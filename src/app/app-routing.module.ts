@@ -1,21 +1,26 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import {BatmanComponent} from "./batman/batman.component";
-import {SupermanComponent} from "./superman/superman.component";
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { BatmanComponent } from "./components/batman/batman.component";
+import { SupermanComponent } from "./components/superman/superman.component";
 
 const routes: Routes = [
   {
-    path: 'batman',
-    component: BatmanComponent
+    path: "",
+    pathMatch: "full",
+    redirectTo: "batman",
   },
   {
-    path: 'superman',
-    component: SupermanComponent
-  }
+    path: "batman",
+    component: BatmanComponent,
+  },
+  {
+    path: "superman",
+    component: SupermanComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

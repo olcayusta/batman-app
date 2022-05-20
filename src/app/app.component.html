@@ -1,14 +1,23 @@
-<mat-toolbar>
-    <span>Batman App</span>
+<mat-toolbar color="primary">
+    <span>Heroes App</span>
+
+    <span class="flex-spacer"></span>
+
+    <nav mat-tab-nav-bar [tabPanel]="tabNavPanel" backgroundColor="primary">
+        <a mat-tab-link routerLink="{{link.path}}" *ngFor="let link of links" routerLinkActive='mat-tab-label-active'
+           #rla="routerLinkActive" [active]="rla.isActive">
+            {{link.label}}
+        </a>
+    </nav>
+    <mat-tab-nav-panel #tabNavPanel></mat-tab-nav-panel>
+
+    <span class="flex-spacer"></span>
+
+    <button mat-icon-button>
+        <mat-icon>login</mat-icon>
+    </button>
+
 </mat-toolbar>
 <main>
-    <div class="container">
-        <a routerLink="/batman">
-            BATMAN - (dataGroups - performanceTodos)
-        </a>
-        <a routerLink="/superman">
-            SUPERMAN - (Normal)
-        </a>
-    </div>
     <router-outlet></router-outlet>
 </main>
